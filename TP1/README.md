@@ -56,7 +56,7 @@ Successfully installed aioconsole-0.8.1
 ```
 
 
-## II. Images
+##  II. Images
 
 ### 🌞 Lancez un conteneur à partir de l'image Python 
 
@@ -82,4 +82,39 @@ truc à noter c'est que linux ça aime pas 'pip' (pcq ça peux faire du kk avec 
 ```
 RUN apt install -y python3 python3-emoji
 ```
+
+## III. Docker compose
+
+### 🌞 Lancez les deux conteneurs avec docker compose / 🌞 Vérifier que les deux conteneurs tournent
+
+```
+nepnath@NepUntu:~/Docker TP1/Compose_test$ docker compose up -d
+WARN[0000] /home/nepnath/Docker TP1/Compose_test/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 2/2
+ ✔ Container compose_test-conteneur_nul-1        Started                                             0.2s 
+ ✔ Container compose_test-conteneur_flopesque-1  S...                                                0.2s 
+nepnath@NepUntu:~/Docker TP1/Compose_test$ docker ps
+CONTAINER ID   IMAGE     COMMAND        CREATED          STATUS         PORTS     NAMES
+76d3582eb0e3   debian    "sleep 9999"   32 seconds ago   Up 4 seconds             compose_test-conteneur_nul-1
+489768a0f946   debian    "sleep 9999"   32 seconds ago   Up 4 seconds             compose_test-conteneur_flopesque-1
+nepnath@NepUntu:~/Docker TP1/Compose_test$ 
+```
+
+
+### 🌞 Pop un shell dans le conteneur conteneur_nul
+
+on suppose que j'ai lançé le compose et que j'ai donc mes deux conteneur de lancés.
+
+```
+docker exec -it {ID} bash
+```
+
+```
+apt update && apt install -y iputils-ping
+```
+
+```
+ping conteneur_flopesque / conteneur nul 
+```
+
 
