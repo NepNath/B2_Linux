@@ -82,3 +82,4 @@ truc à noter c'est que linux ça aime pas 'pip' (pcq ça peux faire du kk avec 
 ```
 RUN apt install -y python3 python3-emoji
 ```
+
