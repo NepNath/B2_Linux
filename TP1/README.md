@@ -55,3 +55,30 @@ Installing collected packages: aioconsole
 Successfully installed aioconsole-0.8.1
 ```
 
+
+## II. Images
+
+### 🌞 Lancez un conteneur à partir de l'image Python 
+
+```
+docker run -it python bash
+```
+
+```
+nepnath@NepUntu:~$ docker run -it python bash
+root@9ccc1d86432b:/# python3 --version
+Python 3.13.1
+```
+
+j'ai fais tout le bordel d'image mais j'ai oublié de noter les étapes dans le README du coup je met le produit de fin (quand on run l'image) pour montrer que ça run bien.
+
+```
+nepnath@NepUntu:~/appkkdocker$ docker run python_app:version_de_ouf 
+Cet exemple d'application est vraiment naze 👎
+```
+
+truc à noter c'est que linux ça aime pas 'pip' (pcq ça peux faire du kk avec l'os) du coup au lieu de faire un 'pip install' pour installer le package 'emoji' on peux juste installer le package après avec python : 
+
+```
+RUN apt install -y python3 python3-emoji
+```
